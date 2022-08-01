@@ -1,0 +1,62 @@
+.btn {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 65px;
+  border: none;
+  color: $clr-1;
+  background: transparent;
+  font-size: 15px;
+  letter-spacing: 1px;
+  box-shadow: $btn-shadow;
+  -webkit-box-shadow: $btn-shadow;
+  -moz-box-shadow: $btn-shadow;
+  z-index: 3;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -50px;
+    height: 300px;
+    width: 300px;
+    top: -70px;
+    background: lighten(rgb(227, 56, 134), 5%);
+    background: linear-gradient(
+      0deg,
+      lighten(rgba(227, 56, 134, 1), 5%) 5%,
+      lighten($primary-color, 5%) 59%,
+      lighten($secondary-color, 2%) 80%
+    );
+    opacity: 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: -50px;
+    height: 300px;
+    width: 300px;
+    top: -70px;
+    background: rgb(227, 56, 134);
+    background: linear-gradient(
+      0deg,
+      rgba(227, 56, 134, 1) 5%,
+      $primary-color 59%,
+      $secondary-color 80%
+    );
+  }
+  &:not(:active):hover {
+    animation: btnHoverEffect 0.5s infinite cubic-bezier(1, 0.14, 0.43, 0.83)
+      alternate;
+    &::before {
+      opacity: 1;
+    }
+  }
+  &:active {
+    animation: btnActiveScale 0.6s ease-in-out forwards;
+    &::after {
+      animation: btnActiveEffect 0.5s ease-in-out forwards;
+    }
+  }
+}

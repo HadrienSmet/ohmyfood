@@ -1,0 +1,149 @@
+.restaurants-search {
+  width: 100%;
+  @media screen and (min-width: 1025px) {
+    height: 763px;
+    top: 250px;
+  }
+  @include columnCenter;
+  &__location-info {
+    display: flex;
+    justify-content: center;
+    background-color: $bg-shade-1;
+    color: $clr-txt-secondary;
+    font-size: 15px;
+    font-weight: 700;
+    z-index: -3;
+    @media screen and (min-width: 1025px) {
+      padding: 14.5px 20px;
+      width: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      box-shadow: $section-shadow;
+      -webkit-box-shadow: $section-shadow;
+      -moz-box-shadow: $section-shadow;
+    }
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      padding: 20px;
+    }
+    & i {
+      font-size: 15px;
+      margin-right: 18px;
+    }
+  }
+  &__button-bloc {
+    background-color: $bg-shade-2;
+    // box-shadow: $section-shadow;
+    // -webkit-box-shadow: $section-shadow;
+    // -moz-box-shadow: $section-shadow;
+    z-index: 1;
+    @include columnCenter;
+    gap: 20px;
+    @media screen and (min-width: 1025px) {
+      padding: 150px 65px 30px;
+      position: absolute;
+      left: 0;
+      top: 210px;
+      height: 600px;
+      width: 30%;
+      gap: 35px;
+    }
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      padding: 20px;
+      padding-bottom: 55px;
+    }
+  }
+  & strong {
+    font-size: 22px;
+    font-weight: 900;
+    @media screen and (min-width: 1025px) {
+      font-size: 26px;
+    }
+  }
+  button {
+    margin-top: 20px;
+  }
+}
+.explanations {
+  gap: 20px;
+  @include columnCenter;
+  @media screen and (min-width: 1025px) {
+    padding: 15px 70px 35px;
+    // height: 354px;
+    position: absolute;
+    top: 47px;
+    right: 0;
+    width: 100%;
+    @include stepGrid;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    padding: 30px 30px 40px;
+    @include stepGrid;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 30px 20px;
+  }
+  h2 {
+    align-self: start;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      grid-area: hdr;
+    }
+  }
+  &__step {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    padding: 20px;
+    background-color: $bg-shade-2;
+    border-radius: 15px;
+    box-shadow: $btn-shadow;
+    transition: 0.3s;
+    @media screen and (min-width: 768px) {
+      @for $i from 2 through 4 {
+        $nmbr: $i - 1;
+        &:nth-child(#{$i}) {
+          grid-area: bt#{$nmbr};
+        }
+      }
+    }
+    @media screen and (min-width: 1025px) {
+      width: 85%;
+      justify-content: center;
+    }
+    @media screen and (max-width: 767px) {
+      width: calc(100% - 10px);
+      justify-content: start;
+      margin-left: 10px;
+    }
+    &:hover {
+      background-color: $bg-shade-3;
+    }
+    &-number {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      background-color: $primary-color;
+      color: $clr-1;
+      @media screen and (min-width: 1025px) {
+        left: -10px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        left: -10px;
+      }
+      @media screen and (max-width: 767px) {
+        left: -10px;
+      }
+    }
+    i {
+      margin-left: 10px;
+      margin-right: 15px;
+      font-size: 15px;
+    }
+    &:hover i {
+      color: $primary-color;
+    }
+  }
+}

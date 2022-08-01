@@ -1,0 +1,114 @@
+.fake-padding-bottom {
+  height: 26px;
+  width: 100%;
+  position: absolute;
+  background-color: $bg-shade-2;
+  transform: translateY(-26px);
+}
+footer {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  background-color: $clr-txt-secondary;
+  @media screen and (min-width: 1025px) {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    position: relative;
+  }
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    height: 130px;
+    position: relative;
+  }
+  @media screen and (max-width: 677px) {
+    gap: 5px;
+    height: unset;
+    position: relative;
+    padding: 20px 20px 35px;
+  }
+  a {
+    color: $clr-1;
+    font-size: 14px;
+    position: relative;
+    transition: 0.4s ease-in-out;
+    &:nth-child(3) i {
+      font-size: 9px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      &:nth-child(4) {
+        position: absolute;
+        bottom: 46px;
+        left: 50%;
+      }
+      &:nth-child(5) {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+      }
+    }
+    &:hover {
+      @media screen and (min-width: 1025px) {
+        transform: translateX(-15px);
+      }
+      @media screen and (max-width: 1024px) {
+        transform: translateX(15px);
+      }
+      &::before {
+        transform: scaleY(1);
+      }
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 15px;
+      background-color: $third-color;
+      left: -20px;
+      top: 0px;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: 0.2s ease-in-out;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: $clr-1;
+      width: 100%;
+      bottom: 0px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 0.4s ease-in-out;
+      @media screen and (max-width: 1024px) {
+        bottom: -1px;
+      }
+    }
+  }
+  i {
+    color: $clr-1;
+    font-size: 12px;
+    transform: translateY(2px);
+    margin-right: 10px;
+  }
+  p {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+h4 {
+  font-family: "fonts-header";
+  color: $clr-1;
+  margin: 5px 0;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.footer-link {
+  display: flex;
+}

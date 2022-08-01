@@ -1,0 +1,144 @@
+.menu {
+  background-color: $bg-shade-2;
+  border-radius: 25px 25px 0 0;
+  position: relative;
+  top: -26px;
+  @media screen and (min-width: 1025px) {
+    padding: 35px 35px 10px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    padding: 35px;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 35px 15px;
+  }
+  &-header {
+    position: relative;
+    display: flex;
+    margin-bottom: 15px;
+    h1 {
+      font-size: 26px;
+    }
+    i {
+      font-size: 30px;
+      position: absolute;
+      right: 15px;
+      transform: translateY(5px);
+      @media screen and (max-width: 767px) {
+        font-size: 22px;
+      }
+      &:nth-child(2) {
+        z-index: 1;
+        &:hover {
+          opacity: 0;
+          + i {
+            opacity: 1;
+          }
+        }
+      }
+      &:nth-child(3) {
+        color: $primary-color;
+        opacity: 0;
+      }
+    }
+  }
+  h2 {
+    align-self: flex-start;
+    margin-left: 10px;
+    font-size: 18px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: normal;
+    &::after {
+      content: "";
+      width: 45px;
+      height: 3px;
+      background-color: $third-color;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0) translateX(45px);
+      opacity: 0;
+      transform-origin: right;
+      animation: titleAfterAnimation 0.7s ease-in-out forwards;
+    }
+  }
+  form {
+    @media screen and (min-width: 1025px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 100px;
+      grid-template-areas:
+        "strt dsh dsrt"
+        "btn btn btn";
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "strt dsh"
+        "dsrt btn";
+    }
+    button {
+      grid-area: btn;
+      padding: 15px 40px;
+      width: 220px;
+      height: 50px;
+      @media screen and (min-width: 1025px) {
+        bottom: -20px;
+        left: 41%;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        bottom: -200px;
+        left: 24%;
+      }
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+    &:checked {
+      + div {
+        label,
+        p {
+          width: calc(100% - 70px);
+        }
+        span {
+          transform: translateX(-70px);
+        }
+        .menu-starter__check-container,
+        .menu-dishes__check-container,
+        .menu-desserts__check-container {
+          transform: scaleX(1);
+          // transform: translateX(0);
+          opacity: 1;
+          i {
+            transform: rotate(720deg);
+          }
+        }
+      }
+    }
+  }
+  &-starter {
+    grid-area: strt;
+    @include strt-dsh-dsrt-choices(4s);
+    &__check-container {
+      @include checkContainer;
+    }
+  }
+  &-dishes {
+    grid-area: dsh;
+    @include strt-dsh-dsrt-choices(4.3s);
+    &__check-container {
+      @include checkContainer;
+    }
+  }
+  &-desserts {
+    grid-area: dsrt;
+    @include strt-dsh-dsrt-choices(4.6s);
+    &__check-container {
+      @include checkContainer;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@mixin columnCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@mixin childCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin stepGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "hdr hdr hdr"
+    "bt1 bt2 bt3";
+  gap: 0 40px;
+}
+@mixin checkContainer {
+  position: absolute;
+  right: 0;
+  height: 70px;
+  width: 70px;
+  border-radius: 0 10px 10px 0;
+  background-color: $third-color;
+  // transform: translateX(70px);
+  transform: scaleX(0);
+  opacity: 0;
+  transform-origin: right;
+  transition: 0.4s ease-in-out;
+}
+@mixin strt-dsh-dsrt-choices($previousAnimDuration) {
+  gap: 15px;
+  margin-bottom: 20px;
+  @include columnCenter;
+  > div {
+    cursor: pointer;
+    position: relative;
+    height: 70px;
+    background-color: $clr-1;
+    padding: 10px;
+    border-radius: 10px;
+
+    opacity: 0;
+    animation: mealsAppear 0.2s ease-in-out forwards;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "hdr prc"
+      "txt prc";
+    @media screen and (min-width: 768px) {
+      transform: translateX(-30%);
+      width: 90%;
+    }
+    @media screen and (max-width: 767px) {
+      transform: translateY(30%);
+      width: 100%;
+    }
+    @each $i, $delay in $meal-delay-displayer {
+      &:nth-child(#{$i}) {
+        animation-delay: calc($delay + $previousAnimDuration);
+      }
+    }
+    &:hover {
+      label,
+      p {
+        width: calc(100% - 70px);
+      }
+      span {
+        transform: translateX(-70px);
+      }
+      .menu-starter__check-container,
+      .menu-dishes__check-container,
+      .menu-desserts__check-container {
+        // transform: translateX(0);
+        transform: scaleX(1);
+        opacity: 1;
+        i {
+          transform: rotate(360deg);
+        }
+      }
+    }
+    label {
+      text-align: left;
+      font-size: 16px;
+      font-weight: bold;
+      grid-area: hdr;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    p {
+      text-align: left;
+      font-size: 14px;
+      grid-area: txt;
+      // position: absolute;
+      bottom: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    i {
+      font-size: 30px;
+      color: $clr-1;
+      padding: 20px;
+    }
+    span {
+      display: block;
+      grid-area: prc;
+      font-weight: bold;
+      margin-top: 30px;
+      background-color: $clr-1;
+      position: relative;
+      bottom: 0;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}

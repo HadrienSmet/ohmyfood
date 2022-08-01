@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="Fr-fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La palette du goût</title>
+    <link rel="stylesheet" href="../Public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            <i id="purple" class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h1>ohmyfood</h1>
+    </header>
+    <main>
+
+        <div id="paletteGout" class="img-menu-container"></div>
+        <section class="menu">
+            <div class="menu-header">
+                <h1>La palette du goût</h1>
+                <i class="fa-regular fa-heart like"></i>
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <form action="post">
+                <div class="menu-starter">
+                    <h2>Entrées</h2>
+                    <input type="radio" name="entrée" id="entrée1">
+                    <div>
+                        <label for="entrée1">Fricassée d'escargot</label>
+                        <p>Au piment d'espelette</p>
+                        <div class="menu-starter__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>25€</span>
+                    </div>
+                    <input type="radio" name="entrée" id="entrée2">
+                    <div>
+                        <label for="entrée2">Foie gras de canard mi-cuit</label>
+                        <p>Et ses copeaux de truffe noire</p>
+                        <div class="menu-starter__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>35€</span>
+                    </div>
+                    <input type="radio" name="entrée" id="entrée3">
+                    <div>
+                        <label for="entrée3">Oeuf au plat</label>
+                        <p>Assaisonné à la truffe sur lit de...</p>
+                        <div class="menu-starter__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>20€</span>
+                    </div>
+                </div>
+                <div class="menu-dishes">
+                    <h2>Plats</h2>
+                    <input type="radio" name="dishes" id="dishes1">
+                    <div>
+                        <label for="dishes1">Filet de boeuf aux herbes</label>
+                        <p>Accompagné de sa rimbambelle de légu...</p>
+                        <div class="menu-dishes__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>40€</span>
+                    </div>
+                    <input type="radio" name="dishes" id="dishes2">
+                    <div>
+                        <label for="dishes2">Parmentier de queue de boeuf</label>
+                        <p>A la truffe noire sur sa purée de panais</p>
+                        <div class="menu-dishes__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>35€</span>
+                    </div>
+                    <input type="radio" name="dishes" id="dishes3">
+                    <div>
+                        <label for="dishes3">Filet de Turbot</label>
+                        <p>Aux agrumes</p>
+                        <div class="menu-dishes__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>44€</span>
+                    </div>
+                </div>
+                <div class="menu-desserts">
+                    <h2>Desserts</h2>
+                    <input type="radio" name="desserts" id="desserts1">
+                    <div>
+                        <label for="desserts1">Paris-Brest</label>
+                        <p>Revisité</p>
+                        <div class="menu-desserts__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>18€</span>
+                    </div>
+                    <input type="radio" name="desserts" id="desserts2">
+                    <div>
+                        <label for="desserts2">Macaron au chocolat d'exception</label>
+                        <p>Et glace à la vanille de Madagascar</p>
+                        <div class="menu-desserts__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>22€</span>
+                    </div>
+                    <input type="radio" name="desserts" id="desserts3">
+                    <div>
+                        <label for="desserts3">Mousse au chocolat</label>
+                        <p>Au piment d'espelette et à la truffe noire</p>
+                        <div class="menu-desserts__check-container">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span>23€</span>
+                    </div>
+                </div>
+                <button class="btn" disabled>Commander</button>
+            </form>
+        </section>
+        <div class="fake-padding-bottom"></div>
+    </main>
+    <footer>
+        <h4>ohmyfood</h4>
+        <a href="#" class="footer-link">
+            <i class="fa-solid fa-utensils"></i>
+            <p>Proposer un restaurant</p>
+        </a>
+        <a href="#" class="footer-link">
+            <i class="fa-solid fa-handshake-angle"></i>
+            <p>Devenir partenaire</p>
+        </a>
+        <a href="#">Mentions légales</a>
+        <a href="#">Contact</a>
+    </footer>
+    <div class="loadingAnim">
+        <div id="animation-bg">
+            <div id="glass" class="glass">
+                <div class="glass-cup"></div>
+                <div class="glass-foot"></div>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

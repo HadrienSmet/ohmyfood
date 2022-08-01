@@ -1,0 +1,96 @@
+#animation-bg {
+  height: 100%;
+  background: rgba(231, 255, 249, 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(231, 255, 249, 0.5) 60%,
+    rgba(153, 226, 208, 0.5) 100%
+  );
+  gap: 20px;
+  @include childCenter;
+  @media screen and (max-width: 767px) {
+    align-items: start;
+  }
+}
+.glass {
+  &-cup {
+    position: relative;
+    overflow: hidden;
+    border: 5px solid #80d3fd84;
+    border-radius: 0 0 60px 60px;
+    height: 105px;
+    width: 95px;
+    @media screen and (max-width: 767px) {
+      width: 78px;
+      height: 75px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      height: 125px;
+      width: 3200px;
+      left: 0;
+      background: url(../../assets/images/wine-removebg.png);
+      background-repeat: repeat-x;
+      transform: translate(0, 100%);
+      animation: wineLoading 4s cubic-bezier(0.51, 0.18, 0.46, 0.71) forwards;
+    }
+  }
+  &-foot {
+    clip-path: polygon(
+      47% 0,
+      53% 0,
+      55% 94%,
+      85% 97%,
+      91% 100%,
+      9% 100%,
+      15% 97%,
+      45% 94%
+    );
+    height: 65px;
+    width: 95px;
+    background-color: #80d3fd8a;
+    position: relative;
+    transform: translateY(-5px);
+    @media screen and (max-width: 767px) {
+      width: 78px;
+      height: 55px;
+    }
+  }
+}
+.ohmyfood {
+  position: relative;
+  &::after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: $primary-color;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+    animation: underlineAnimation 6s ease-in-out infinite;
+    opacity: 0.5;
+  }
+  div {
+    font-size: 80px;
+    font-family: "fonts-header";
+    display: inline-block;
+    color: lighten($third-color, 15%);
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) .neon {
+        animation-delay: counterDelay($i, 4);
+      }
+    }
+    .neon {
+      font-family: "fonts-header";
+      position: absolute;
+      color: $primary-color;
+      text-shadow: 0 0 10px #9256dcd3;
+      opacity: 0;
+      transform: translateY(-100%);
+      animation: lettersAnimation 4s linear infinite;
+    }
+  }
+}

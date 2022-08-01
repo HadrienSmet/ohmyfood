@@ -1,0 +1,50 @@
+#home-header {
+  @media screen and (min-width: 1025px) {
+    width: 50%;
+  }
+}
+header {
+  box-shadow: $header-shadow;
+  -webkit-box-shadow: $header-shadow;
+  -moz-box-shadow: $header-shadow;
+  background-color: $clr-1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  @media screen and (max-width: 767px) {
+    padding-top: 20px;
+    padding-bottom: 5px;
+  }
+  a {
+    &:hover {
+      i:nth-child(1) {
+        transform: translateY(10px);
+        opacity: 0;
+        + #purple {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+    &:active #purple {
+      transform: translateY(0) scale(1.2);
+    }
+    i {
+      position: absolute;
+      top: 35px;
+      left: 15px;
+      font-size: 20px;
+      transition: 0.3s;
+      @media screen and (min-width: 768px) {
+        top: 13.5px;
+      }
+    }
+  }
+}
+#purple {
+  color: $primary-color;
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: 0.4s ease-in-out;
+  z-index: 0;
+}

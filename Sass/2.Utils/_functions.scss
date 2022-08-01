@@ -1,0 +1,11 @@
+@function lightness-shift($color) {
+  @if (lightness($color) < 30%) {
+    @return lighten($color, 10%);
+  } @else {
+    @return darken($color, 40%);
+  }
+}
+@function counterDelay($i, $gap) {
+  $delay: 0.1s + (($i - 1) * ($gap * 0.1s));
+  @return $delay;
+}
